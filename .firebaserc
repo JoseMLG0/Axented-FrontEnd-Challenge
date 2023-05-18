@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "axented-frontend-challenge"
+  },
+  "targets": {
+    "axented-frontend-challenge": {
+      "hosting": {
+        "Axented-FrontEnd-Challenge": [
+          "axented-frontend-challenge"
+        ]
+      }
+    }
+  }
+}

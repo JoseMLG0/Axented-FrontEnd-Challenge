@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -93,12 +94,26 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Axented-FrontEnd-Challenge:build:production",
+            "firebaseProject": "axented-frontend-challenge",
+            "firebaseHostingSite": "axented-frontend-challenge"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7ccd5545-9263-4fa1-88aa-0152dd993e45"
   }
 }
