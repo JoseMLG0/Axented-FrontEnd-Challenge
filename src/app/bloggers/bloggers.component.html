@@ -1,0 +1,23 @@
+<div class="container-xl w-100  ">
+    <div class="row">
+        <div class="col-12">
+            <h1>BLOGGERS</h1>
+        </div>
+        <div class="col-12" [align]="'end'">
+            <button class="btn btn-sm btn-primary" (click)="createBlogger()">New Blogger</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12" [formGroup]="searchFM">
+            <input type="text" class="form-control" placeholder="Search..." aria-label="search" formControlName="searchText" >
+        </div>
+        <div class="col-sm-8">
+            <app-view-bloggers [bloggers$]="bloggers$" (bloggersEmitter)="selectBlogger($event)"></app-view-bloggers>
+        </div>
+        <div class="col-sm-4">
+            <app-view-blogger [blogger]="blogger.idf??''" (changeBloggerSelected)="selectBlogger($event)" *ngIf="blogger" (deleteBlogger)="deleteBlogger()" (closeBlogger)="closeBlogger()"
+                (updateBlogger)="updateBlogger()"></app-view-blogger>
+        </div>
+    </div>
+</div>

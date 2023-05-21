@@ -1,1 +1,32 @@
-<p>create-blogger works!</p>
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Create Blogger</h4>
+    <button type="button" class="btn-close" aria-describedby="modal-title"
+        (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="namef" class="form-label">Name</label>
+            <input type="text" class="form-control" id="namef" aria-describedby="namef" formControlName="name" >
+        </div>
+        <div class="mb-3">
+            <label for="websitef" class="form-label">Website</label>
+            <input type="text" class="form-control" id="websitef" aria-describedby="websitef" formControlName="website">
+        </div>
+        <div class="mb-3">
+            <label for="picturef" class="form-label">Picture url</label>
+            <input type="text" class="form-control" id="picturef" aria-describedby="picturef" formControlName="picture_url">
+        </div>
+        <div class="mb-3"> 
+            <img [src]="form.get('picture_url')?.value" class="rounded mx-auto d-block img-fluid" alt="Responsive image" onError="this.src='assets/images/noImage.jpg'" width="200px" height="200px">
+        </div>
+        <div class="mb-3">
+            <label for="emailf" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailf" aria-describedby="emailf" formControlName="email">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success me-1" (click)="confirm()">Registrar</button>
+    <button class="btn btn-danger me-1" (click)="cancel()">Cancelar</button>
+</div>

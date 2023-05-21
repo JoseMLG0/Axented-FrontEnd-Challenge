@@ -1,1 +1,41 @@
-<p>view-blogger works!</p>
+<div class="detail" *ngIf="!!_blogger">
+    <h2>{{ _blogger.name }}</h2>
+    <h4>{{ _blogger.website }}</h4>
+    <div class="content">
+        <img [src]="_blogger.picture_url" />
+    </div>
+    <h4>{{ _blogger.email }}</h4>
+    <div class="row">
+        <div class="col-12">
+            <label for="addfriend">New Friend</label>
+            <div class="input-group">
+                <select class="form-select" id="addfriend"  (change)="selectNoFriend($event)">
+                    <option [ngValue]="undefined" *ngIf="!selectedNoFriend">Select blogger to add</option>
+                    <option *ngFor="let noFriend of noFriendsBlogger$ | async" [value]="noFriend.id" [hidden]="noFriend.idf === _blogger.idf"
+                       >{{noFriend.name}}</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" (click)="addFriend()" [disabled]="!selectedNoFriend">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label for="addfriend">Friends</label>
+            <div class="friend" >
+                <div class=" card-container">
+                    <mat-card *ngFor="let friend of friendsBlogger$ | async" [matTooltip]="friend.name || ''">
+                      <img mat-card-image [src]="friend.picture_url"  (click)="selectFriend(friend)"/>
+                    </mat-card>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <hr>
+    <div>
+        <button (click)="closeBloggerF()" class="btn btn-sm btn-danger float-start">Close</button>
+        <button (click)="deleteBloggerF()" class="btn btn-sm btn-warning float-end">Delete</button>
+    </div>
+</div>

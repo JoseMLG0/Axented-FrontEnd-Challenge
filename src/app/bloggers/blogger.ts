@@ -1,8 +1,9 @@
 export interface Blogger {
-    id: number;
+    idf?: string;
+    id: string;
     name: string;
     website: string;
     picture_url: string
     email: string;
-    friends: [number]
+    friends: string[]
 }
