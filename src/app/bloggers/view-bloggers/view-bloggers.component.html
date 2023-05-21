@@ -4,9 +4,9 @@
       (click)="selectBlogger(blogger)"
     >
       <mat-card-header>
-        <mat-card-title>{{ blogger.name }}</mat-card-title>
-        <mat-card-subtitle>{{ blogger.website }}</mat-card-subtitle>
+        <mat-card-title class="name">{{ blogger.name }}</mat-card-title>
       </mat-card-header>
       <img mat-card-image [src]="blogger.picture_url"  />
+      <mat-card-subtitle class="website">{{ blogger.website }}</mat-card-subtitle>
     </mat-card>
   </div>
